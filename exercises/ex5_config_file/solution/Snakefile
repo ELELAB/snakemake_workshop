@@ -2,7 +2,7 @@ configfile: "config.yaml"
 
 rule all:
     input:
-        "all.vcf"
+        "calls/all.vcf"
 
 rule bwa_map:
     input:
