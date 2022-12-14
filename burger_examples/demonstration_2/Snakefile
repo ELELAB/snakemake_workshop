@@ -1,0 +1,14 @@
+rule all:
+    input:
+        "patty",
+        "buns",
+        "lettuce"
+
+rule get_food:
+    output:
+        "{ingredient}"
+    shell:
+        """
+        touch {output}
+        """
+

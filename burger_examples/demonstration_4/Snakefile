@@ -1,0 +1,52 @@
+buns = ['simplebun', 'sesamebun']
+patties = ['groundbeef', 'chickenbreast']
+veggies = ['lettuce', 'iceberg']
+
+rule all:
+    input:
+        "burger_tray"
+
+rule get_ingredient:
+    output:
+        "{ingredient,[a-z]+}"
+    shell:
+        "touch {output}"
+
+rule shred:
+    input:
+        "{ingredient}"
+    output:
+        "shredded-{ingredient}"
+    shell:
+        "cp {input} {output}"
+
+rule cook:
+    input:
+        "{ingredient}"
+    output:
+        "cooked-{ingredient}"
+    shell:
+        "cp {input} {output}"
+
+rule make_burger:
+    input:
+        "{bun}",
+        "shredded-{veggie}",
+        "cooked-{patty}"
+    output:
+        "burger_{bun}_shredded-{veggie}_cooked-{patty}"
+    shell:
+        "cat {input} > {output}"
+
+rule deliver_order:
+    output:
+        "burger_tray"
+    input:
+        expand("burger_{bun}_shredded-{veggie}_cooked-{patty}",
+                zip,
+                patty=patties,
+                bun=buns,
+                veggie=veggies)
+    shell:
+        "cat {input} > {output}"
+
