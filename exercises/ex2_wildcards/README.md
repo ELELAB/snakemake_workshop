@@ -34,10 +34,10 @@ snakemake -c 1 my_output_file.bam
 
 finally, add to the snakemake a first pseudorule `all` to specify
 all your targets and rerun your workflow. Be aware that in this case
-you don't need to specify targets in the command line (as they are already)
-defined in the Snakefile rule `all`). Also remember that Snakemake doesn't
+you don't need to specify targets in the command line as they are already
+defined in the Snakefile rule `all`. Also remember that Snakemake doesn't
 rerun rules whose output files are already present - if this is the case, either
-remove them or use option --forceall to force overwrite.
+remove them or use option `--forceall` to force overwrite.
 
 - can you find a way to ask snakemake to run both samples at the same time?
 
