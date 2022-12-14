@@ -1,0 +1,18 @@
+rule get_patty_from_fridge:
+    output:
+        "beefpatty"
+    shell:
+        "touch {output}"
+
+rule get_lettuce_from_fridge:
+    output:
+        "iceberg"
+    shell:
+        "touch {output}"
+
+rule get_buns_from_pantry:
+    output:
+        "buns"
+    shell:
+        "touch {output}"
+
