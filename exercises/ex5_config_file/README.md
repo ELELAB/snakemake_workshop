@@ -6,8 +6,9 @@ allows to decouple the code from the data, as it means that modifying the
 pipeline won't be necessary to rerun it on different samples.
 
 you can write a configuration file in YAML format (see [this tutorial](https://www.educative.io/blog/yaml-tutorial)
+for details).
 
-briefly, for our case, a yaml file consists in a list of associations, like this:
+Briefly, for our case, a yaml file consists in a list of associations, like this:
 
 ```
 key:
